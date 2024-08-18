@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    position: relative;
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    background-color: #ced4da;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ 
+}
+
+.game {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 60px;
+    
+}
+
+.game img {
+    cursor: pointer;
+}
+
+.game img:hover{
+    scale: 0.90;
+}
+
+.score {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.score p {
+    font-weight: bold;
+}
+
+.showScore {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+#result {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
