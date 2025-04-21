@@ -42,7 +42,9 @@ JavaScript (ES6+)
 💡 Future Improvements
 
 Add sound effects and animations
+
 Make the design responsive for mobile
+
 Add game history or restart functionality
 
 
