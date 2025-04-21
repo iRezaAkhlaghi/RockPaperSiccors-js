@@ -1,47 +1,45 @@
-let Choose = document.querySelector(".game")
-let Result = document.querySelector("#result")
-let myWins = document.querySelector(".me")
-let cmpWins = document.querySelector(".cmp")
-let cmpMove = document.querySelector("#cmpMove")
+// Define variables for game status
+let computerChoice = "";
+let playerChoice = "";
+let playerWinsCount = 0;
+let computerWinsCount = 0;
 
+// Add event listener for player's choice
+document.querySelector(".game").addEventListener("click", (event) => {
+    // Get the player's choice from the clicked element
+    playerChoice = event.target.className;
 
-let computer = ["Rock", "Paper", "Siccors"]
+    // Generate a random choice for the computer
+    const computerChoices = ["Rock", "Paper", "Scissors"];
+    const randomIndex = Math.floor(Math.random() * computerChoices.length);
+    computerChoice = computerChoices[randomIndex];
 
-let CmpChoose = ""
-let myChoose = ""
-let myWinsCount = 0
-let cmpWinsCount = 0
+    // Display the computer's choice
+    document.querySelector("#cmpMove").innerText = `Computer chose: ${computerChoice}`;
 
+    // Call the function to determine the result of the game
+    determineResult(playerChoice, computerChoice);
+});
 
+// Function to determine the result of the game
+function determineResult(player, computer) {
+    const resultElement = document.querySelector("#result");
+    const myWinsElement = document.querySelector(".me");
+    const cmpWinsElement = document.querySelector(".cmp");
 
-Choose.addEventListener("click", (e) => {
-    myChoose = e.target.className
-    const random = Math.floor(Math.random() * computer.length);
-    CmpChoose = computer[random]
-
-    
-    cmpMove.innerText = `Computer choose : ${CmpChoose}`
-
-    result(myChoose, CmpChoose)
-
-})
-
-function result(me, cmp) {
-
-    if (me == cmp) {
-        Result.innerText = "YOU BOTH CHOOSE SAME"
+    if (player === computer) {
+        resultElement.innerText = "YOU BOTH CHOSE THE SAME";
+    } else if (
+        (player === "Rock" && computer === "Paper") ||
+        (player === "Scissors" && computer === "Rock") ||
+        (player === "Paper" && computer === "Scissors")
+    ) {
+        resultElement.innerText = "YOU LOSE THIS TIME";
+        computerWinsCount++;
+        cmpWinsElement.children[0].innerText = computerWinsCount;
+    } else {
+        resultElement.innerText = "YOU WIN THIS TIME";
+        playerWinsCount++;
+        myWinsElement.children[0].innerText = playerWinsCount;
     }
-    if (me == "Rock" && cmp == "Paper" || me == "Siccors" && cmp == "Rock" || me == "Paper" && cmp == "Siccors") {
-        Result.innerText = "YOU LOSE THIS TIME"
-        cmpWinsCount++
-        cmpWins.children[0].innerText = cmpWinsCount
-    }
-    if (me == "Rock" && cmp == "Siccors" || me == "Paper" && cmp == "Rock" || me == "Siccors" && cmp == "Paper") {
-        Result.innerText = "YOU WIN THIS TIME"
-        myWinsCount++
-        myWins.children[0].innerText = myWinsCount
-    }
-
 }
-
-
