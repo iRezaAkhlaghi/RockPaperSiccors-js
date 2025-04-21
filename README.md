@@ -1,4 +1,4 @@
-🪨📄✂️ Rock Paper Scissors Game
+✂️ Rock Paper Scissors Game
 A simple and interactive Rock-Paper-Scissors game built with vanilla JavaScript, HTML, and CSS. This mini project lets the user play against the computer and keeps track of the score.
 
 🚀 Features
